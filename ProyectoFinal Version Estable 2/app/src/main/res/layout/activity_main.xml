@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/usuarioLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:backgroundTint="#00FFFFFF"
+                android:src="@mipmap/usuariopp"
+                android:textStyle="normal|bold"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/NomUsuario"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_y="14dp"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="116dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="#00986969"
+                android:src="@mipmap/bus" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="PROGRAMÓVIL"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_x="243dp"
+                android:layout_y="458dp"
+                android:text="UBICACIONES" />
+
+            <ImageButton
+                android:id="@+id/btnMapa"
+                android:layout_width="262dp"
+                android:layout_height="236dp"
+                android:layout_gravity="center"
+                android:layout_x="102dp"
+                android:layout_y="269dp"
+                android:backgroundTint="#00FFFFFF"
+                android:src="@mipmap/mapacolor"
+                android:textStyle="bold" />0
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="      Pasos"
+                android:textSize="30sp" />
+
+
+            <TextView
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:text="           Recorrido   "
+                android:textSize="30sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_x="104dp"
+                android:layout_y="595dp"
+                android:text="     "
+                android:textSize="40sp" />
+            <TextView
+                android:id="@+id/pasos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_x="104dp"
+                android:layout_y="595dp"
+                android:text="0"
+                android:textSize="40dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_x="104dp"
+                android:layout_y="595dp"
+                android:text="                "
+                android:textSize="40sp" />
+            <TextView
+                android:id="@+id/recorrido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_x="104dp"
+                android:layout_y="595dp"
+                android:text="0"
+                android:textSize="40sp" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>

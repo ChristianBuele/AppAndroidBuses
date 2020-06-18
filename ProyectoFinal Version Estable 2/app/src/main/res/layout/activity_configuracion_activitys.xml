@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfiguracionActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/spin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/tiempo_de_actualizacion_gps" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="127dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal">
+
+    </Spinner>
+
+    <ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:backgroundTint="#00FFFFFF"
+    android:src="@mipmap/guardar"
+    android:text="@string/guardar"
+    android:onClick="guardaCambios"
+      />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@mipmap/volver"
+        android:text="@string/regresar"
+        android:onClick="volver"
+        android:contentDescription="@string/todo"></ImageButton>
+
+
+
+</LinearLayout>

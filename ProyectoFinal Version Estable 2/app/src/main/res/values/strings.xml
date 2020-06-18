@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ProyectoFinal</string>
+    <string name="moviapp">MoviApp</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrar">Registrar</string>
+    <string name="descripcion">descripcion</string>
+    <string name="todo">TODO</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="correo">Correo</string>
+    <string name="enviar">Enviar</string>
+    <string name="celular">Celular</string>
+    <string name="confirmar_contrase_a">Confirmar Contraseña</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="ver_mapa">Ver Mapa</string>
+    <string name="Configuracion">Configuración</string>
+    <string name="CerrarSesion">Cerrar Sesión</string>
+    <string name="CerrarApp">Cerrar Aplicación</string>
+    <string name="centrar">Centrar</string>
+    <string name="todo1">TODO</string>
+    <string name="menu">Menu</string>
+    <string name="iniciarS">Iniciar Sesion</string>
+    <string name="tiempo_de_actualizacion_gps">Tiempo de actualizacion GPS</string>
+    <string name="valor1">10</string>
+    <string name="valor2">20</string>
+    <string name="valor3">30</string>
+    <string name="valor4">40</string>
+
+    <string name="guardar">Guardar</string>
+    <string name="regresar">regresar</string>
+
+
+</resources>
