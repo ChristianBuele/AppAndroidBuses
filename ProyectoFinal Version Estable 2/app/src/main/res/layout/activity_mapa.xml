@@ -1,46 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MapsActivity"
+        android:layout_width="418dp"
+        android:layout_height="584dp"
+        android:layout_marginTop="2dp"
 
 
-        />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_alignParentBottom="true"
-    >
-    <ImageButton
-        android:layout_width="75dp"
-        android:layout_height="77dp"
-        android:backgroundTint="#00FFFFFF"
-        android:onClick="centrar"
-        android:src="@mipmap/centrar"
-        android:layout_gravity="top"
-        android:text="@string/centrar" />
-    <ImageButton
-        android:layout_width="75dp"
-        android:layout_height="77dp"
-        android:backgroundTint="#00FFFFFF"
-        android:onClick="cambiarMapa"
-        android:src="@mipmap/reload"
-        android:layout_gravity="top" />
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:context=".MapsActivity" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="412dp"
+        android:layout_height="145dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/holo_blue_bright"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent">
 
 
+        <TextView
+            android:id="@+id/textViewOrigen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Origen:"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textViewDestino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Destino:"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toBottomOf="@+id/textViewOrigen" />
 
+        <EditText
+            android:id="@+id/editTextOrigen"
+            android:layout_width="212dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            map:layout_constraintStart_toEndOf="@+id/textViewOrigen"
+            map:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/editTextDestino"
+            android:layout_width="211dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            map:layout_constraintStart_toEndOf="@+id/textViewDestino"
+            map:layout_constraintTop_toBottomOf="@+id/editTextOrigen" />
 
+        <Button
+            android:id="@+id/buttonGuardarOrigen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:onClick="guardarUbicacionOrigen"
+            android:text="@string/guardar"
+            map:layout_constraintStart_toEndOf="@+id/button"
+            map:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/buttonGuardarDestino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:onClick="guardarUbicacionDestino"
+            android:text="Guardar"
+            map:layout_constraintStart_toEndOf="@+id/editTextDestino"
+            map:layout_constraintTop_toBottomOf="@+id/buttonGuardarOrigen" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="39dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@mipmap/save"
+            android:onClick="myLocation"
+            map:layout_constraintStart_toEndOf="@+id/editTextOrigen"
+            map:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="52dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="188dp"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/calculate"
+            android:onClick="trazarRuta"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toBottomOf="@+id/editTextDestino" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="82dp"
+        android:layout_height="71dp"
+        android:background="#00DFFD"
+        android:backgroundTint="#09D0F3"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        map:layout_constraintVertical_bias="0.003">
+
+        <Spinner
+            android:id="@+id/spinnerRutas"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="44dp"
+            android:layout_height="23dp"
+            android:layout_weight="1"
+            android:onClick="CargarParadas"
+
+            android:text="Button" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

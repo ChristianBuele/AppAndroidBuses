@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +39,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 
@@ -93,6 +96,7 @@ Usuario usuarioLogeago =null;
         recibirDatos();
         permisosApp();
         botonesEventos();
+
       baseDATOS= FirebaseDatabase.getInstance().getReference();
         mDataBase= FirebaseDatabase.getInstance().getReference();
         mFusedLocationClient= LocationServices.getFusedLocationProviderClient(this);
@@ -106,6 +110,7 @@ Usuario usuarioLogeago =null;
             editor.putInt("tiempo",10);
             editor.commit();
         }
+        recuperarRutas();
     }
     ///sesion verificacion
     public void sesion(Usuario usuarioLogeago) {
@@ -189,6 +194,67 @@ boolean registradorPos=false;
             }
         }
     }
+    public void cargarRutas(){
+        LatLng lati= new LatLng(-2.892927, -78.999270);
+        mDataBase.child("lineas").child("1").child("parada 22").setValue(lati);
+
+        LatLng lati2= new LatLng(-2.892970,-78.996320);
+        mDataBase.child("lineas").child("1").child("parada 23").setValue(lati2);
+
+        LatLng lati3= new LatLng(-2.891438, -78.993370);
+        mDataBase.child("lineas").child("1").child("parada 24").setValue(lati3);
+
+        LatLng lati4= new LatLng(-2.888487, -78.987721);
+        mDataBase.child("lineas").child("1").child("parada 25").setValue(lati4);
+
+        LatLng lati5= new LatLng(-2.885347, -78.983794);
+        mDataBase.child("lineas").child("1").child("parada 26").setValue(lati5);
+
+        LatLng lati6= new LatLng(-2.883858, -78.980575);
+        mDataBase.child("lineas").child("1").child("parada 27").setValue(lati6);
+
+        LatLng lati7= new LatLng(-2.882894, -78.977549);
+        mDataBase.child("lineas").child("1").child("parada 28").setValue(lati7);
+
+        LatLng lati8= new LatLng(-2.882412, -78.973815);
+        mDataBase.child("lineas").child("1").child("parada 29").setValue(lati8);
+
+        LatLng lati9= new LatLng(-2.883891, -78.969448);
+        mDataBase.child("lineas").child("1").child("parada 30").setValue(lati9);
+
+        LatLng lati10= new LatLng(-2.884137, -78.967474);
+        mDataBase.child("lineas").child("1").child("parada 31").setValue(lati10);
+
+        LatLng lati11= new LatLng(-2.885423, -78.965403);
+        mDataBase.child("lineas").child("1").child("parada 32").setValue(lati11);
+
+        LatLng lati12= new LatLng(-2.886122, -78.963937);
+        mDataBase.child("lineas").child("1").child("parada 33").setValue(lati11);
+    }
+   HashMap<String,ArrayList<LatLng>> rutas=new HashMap<>();
+    public void recuperarRutas(){
+cargarRutas();
+        for (int k=1;k<3;k++){
+           final int m=k;
+            baseDATOS.child("lineas").child(Integer.toString(k)).addListenerForSingleValueEvent(new ValueEventListener() {
+                ArrayList<LatLng> dato=new ArrayList<>();;
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                        punto latLng=snapshot.getValue(punto.class);
+                        dato.add(new LatLng(latLng.latitude,latLng.longitude));
+                    }
+                    rutas.put("linea "+m,dato);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+    }
     ///cambio en la loclizacion del usuaro
     LocationListener locationListener = new LocationListener() {
 
@@ -264,6 +330,7 @@ boolean registradorPos=false;
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("usuario", usuarioLogeago);
                 bundle.putSerializable("ubicaciones",marcadorReal);
+                bundle.putSerializable("rutas",rutas);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 break;
