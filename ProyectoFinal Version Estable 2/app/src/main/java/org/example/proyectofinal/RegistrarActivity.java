@@ -121,7 +121,7 @@ public class RegistrarActivity extends AppCompatActivity implements Serializable
                     map.put("contrasenia",contra);
                     map.put("celular",celular);
                     map.put("id",id);
-
+                    map.put("isConductor","false");
                     bd.child("usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
