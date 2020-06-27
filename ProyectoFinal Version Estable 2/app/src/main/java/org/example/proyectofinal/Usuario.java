@@ -9,13 +9,20 @@ public class Usuario implements Serializable {
     Float pasosDados=(float)0;
     String idRegistro="";
     String apellido="";
-   private boolean band=true;
+    Boolean isConductor=false;
+    private boolean band=true;
     private String unidades="m";
     public Usuario(String usuario, Double latitud, Double longitud) {
         this.usuario = usuario;
         this.latitud = latitud;
         this.longitud = longitud;
     }
+
+    public Boolean getConductor() { return isConductor; }
+
+    public void setConductor(Boolean isConductor) { this.isConductor = isConductor;}
+
+    public String getIdRegistro() { return idRegistro; }
 
     public String getUsuario() {
         return usuario;
@@ -57,4 +64,6 @@ public class Usuario implements Serializable {
         this.unidades = unidades;
     }
 }
+
+
 
