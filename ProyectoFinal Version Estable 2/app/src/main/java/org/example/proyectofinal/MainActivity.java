@@ -166,7 +166,7 @@ boolean registradorPos=false;
                     distancia.setText(String.valueOf(usuarioLogeago.distanciaRecorrida));
                     usuarioLogeago.setLatitud(location.getLatitude());//agregar
                     usuarioLogeago.setLongitud(location.getLongitude());///agregar
-                    mDataBase.child("ubicaciones").push().setValue(latlang);
+                    mDataBase.child("usuarios").child(mauth.getCurrentUser().getUid()).child("ubicaciones").push().setValue(latlang);
                     registradorPos=true;
                 }else{
                     Map<String,Object> latlang= new HashMap<>();
@@ -187,7 +187,7 @@ boolean registradorPos=false;
                         distancia.setText(formato1.format(recorridoMetros)+" "+usuarioLogeago.getUnidades());
                         usuarioLogeago.setLatitud(location.getLatitude());//agregar
                         usuarioLogeago.setLongitud(location.getLongitude());///agregar
-                        mDataBase.child("ubicaciones").push().setValue(latlang);
+                        mDataBase.child("usuarios").child(mauth.getCurrentUser().getUid()).child("ubicaciones").push().setValue(latlang);
                     }
 
                 }
